@@ -16170,6 +16170,16 @@ pub struct xsk_ring_prod {
     pub ring: *mut ::std::os::raw::c_void,
     pub flags: *mut __u32,
 }
+impl Default for xsk_ring_prod {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+
 #[test]
 fn bindgen_test_layout_xsk_ring_prod() {
     const UNINIT: ::std::mem::MaybeUninit<xsk_ring_prod> = ::std::mem::MaybeUninit::uninit();
@@ -16277,6 +16287,16 @@ pub struct xsk_ring_cons {
     pub ring: *mut ::std::os::raw::c_void,
     pub flags: *mut __u32,
 }
+impl Default for xsk_ring_cons {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+
 #[test]
 fn bindgen_test_layout_xsk_ring_cons() {
     const UNINIT: ::std::mem::MaybeUninit<xsk_ring_cons> = ::std::mem::MaybeUninit::uninit();
